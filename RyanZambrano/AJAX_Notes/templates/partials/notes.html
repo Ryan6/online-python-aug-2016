@@ -1,0 +1,16 @@
+{% for note in all_notes %}
+<div class="note">
+	<h1>{{note.title}}
+		<form action="/notes/{{note.id}}/destroy">
+			<input type="submit" value="Delete">
+		</form>
+	</h1>
+	<form action="/notes/{{note.id}}/update" method="post">
+		{% if note.description %}
+			<textarea name="description">{{note.description}}</textarea>
+		{% else %}
+			<textarea name="description"></textarea>
+		{% endif %}
+	</form>
+</div>
+{% endfor %}

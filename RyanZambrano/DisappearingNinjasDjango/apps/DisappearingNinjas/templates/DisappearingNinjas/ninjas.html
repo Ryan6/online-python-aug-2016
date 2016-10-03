@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ninjas</title>
+	</head>
+	
+	<body>
+		{% if color %}
+			{% if color == 'blue' %}
+				<img src="/static/img/leonardo.jpg" height="300" width="300">
+			{% elif color == 'orange' %}
+				<img src="/static/img/michelangelo.jpg" height="300" width="300">
+			{% elif color == 'red' %}
+				<img src="/static/img/raphael.jpg" height="300" width="300">
+			{% elif color == 'purple' %}
+				<img src="/static/img/donatello.jpg" height="300" width="300">
+			{% else %}
+				<img src="/static/img/notapril.jpg" width="300">
+			{% endif %}
+		{% else %}
+			<img src="/static/img/leonardo.jpg" height="300" width="300">
+			<img src="/static/img/michelangelo.jpg" height="300" width="300">
+			<img src="/static/img/raphael.jpg" height="300" width="300">
+			<img src="/static/img/donatello.jpg" height="300" width="300">
+		{% endif %}
+	</body>
+</html>

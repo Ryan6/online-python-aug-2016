@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Validation</title>
+</head>
+<body>
+	<form action="/success" method="POST">
+	{% csrf_token %}
+		Email Address: <input type="text" name="UserEmail">
+		<input type="submit" name="submit">
+		{{message}}
+	</form>
+</body>
+</html>

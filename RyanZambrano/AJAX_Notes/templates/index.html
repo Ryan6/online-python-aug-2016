@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX Notes</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$('form').submit(function(){
+				
+				$.post($(this).attr('action'), $(this).serialize(), function(notes){
+					$('#notes').html(notes);
+					$('input[type="text"]').val("");
+				}, 'html');
+				return false;
+			});
+
+			$('#notes').on('focusout', 'textarea', function(){
+				$.post($(this).parent().attr('action'), $(this).serialize($(this).val()), function(notes){
+					$('#notes').html(notes);
+				}, 'html');
+			});
+
+			$('#notes').on('submit', 'form', function(){
+				$.get($(this).attr('action'), function(notes){
+					$('#notes').html(notes);
+				}, 'html');
+				return false;
+			});
+		});
+	</script>
+
+
+</head>
+<body>
+	<div class="container">
+		<h1>My Notes</h1>
+		<div id="notes">
+			<form action="/notes/create" method="post">
+				<input type="text" name="title" placeholder="Note Title...">
+				<input type="submit" value="Post It!">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+</head>
+<body>
+	<h1>Welcome!</h1>
+	{{request.session.error}}
+	<form action="/register" method="POST">
+		{% csrf_token %}
+		<ul>
+			<h1>Register</h1>
+			<li>Name:<input type="text" name="name"></li>
+			<li>Username:<input type="text" name="username"></li>
+			<li>Email:<input type="text" name="email_register"></li>
+			<li>Password:<input type="text" name="pwd_register"></li>
+			<li>*Password must be at least 8 characters</li>
+			<li>Confirm PW:<input type="text" name="pwd_confirm"></li>
+			<li><input type="submit" value="Register"></li>
+		</ul>
+	</form>
+	<form action="/login" method="POST">
+		{% csrf_token %}
+		<ul>
+			<li><h1>Login</h1></li>
+			<li>email:<input type="text" name="email_login"></li>
+			<li>password:<input type="text" name="pwd_login"></li>
+			<li><input type="submit" value="Login"></li>
+		</ul>
+	</form>
+</body>
+</html>

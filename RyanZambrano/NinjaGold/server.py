@@ -49,7 +49,3 @@ def reset():
 	
 app.run(debug=True)
 
-
-# fell a little behind b/c of moving this past weekend.
-# Activities textbox is functional but not colorful and timestamped as it should be.
-# will update when I get caught back up.

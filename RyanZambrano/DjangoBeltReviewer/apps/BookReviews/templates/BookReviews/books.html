@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Books Home</title>
+</head>
+<body>
+	<ul>
+		<li><h1>Welcome, {{request.session.current_user}}</h1></li>
+		<li><a href="/books/add">Add Book and Review</a></li>
+		<li><a href="/logout">Logout</a></li>
+	</ul>
+
+
+	<h2>Recently Reviewed Books</h2>
+	<ul>
+	{% for recent in recents %}
+		<li><a href="books/{{recent.id}}">{{recent.title}}</a></li>
+	{% endfor %}
+	</ul>
+
+	<h2>Other Books</h2>
+	<ul>
+	{% for book in books %}
+		<li><a href="books/{{book.id}}">{{book.title}}</a></li>
+	{% endfor %}
+	</ul>
+
+</body>
+</html>

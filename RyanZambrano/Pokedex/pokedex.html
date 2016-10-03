@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pokemon</title>
+		<link rel="stylesheet" type="text/css" href="pokedex.css">
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				for (var i = 1; i <= 151; i++) {
+					pokemon.innerHTML += '<img class="poke_img" id='+i+' src="http://pokeapi.co/media/img/'+i+'.png">'
+				};
+
+				$(".poke_img").click(function(){
+					poke_url = "http://pokeapi.co/api/v1/pokemon/"
+					id = $(this).attr('id')
+					poke_url += id
+					$.get(poke_url, function(res) {
+						console.log(res)
+						console.log($(this).attr('id'))
+						html_str = ""
+						html_str += "<h1>"+res.name+"</h1>"
+						img_str = "<img src='http://pokeapi.co/media/img/"+id+".png'>"
+						html_str += img_str
+						html_str += "<h4>Type(s):</h4>";
+						html_str += "<ul>"; 
+						for(var i = 0; i < res.types.length; i++) {
+							html_str += "<li>" + res.types[i].name + "</li>";
+						}
+						html_str += "</ul>";
+						html_str += "<h4>Height:</h4>";
+						html_str += "<li>"+res.height+"</li>"
+						html_str += "<h4>Weight:</h4>";
+						html_str += "<li>"+res.weight+"</li>"
+
+					$("#pokedex").html(html_str)
+					}, "json");
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="pokemon"></div>
+			<div id="pokedex">
+				<h1>Pokédex v1.0</h1>
+				<h2>Select a pokemon to learn about it!</h2>
+			</div>
+		</div>
+	</body>
+</html>

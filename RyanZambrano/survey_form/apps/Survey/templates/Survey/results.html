@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Submitted!</title>
+</head>
+<body>
+	<p>Thanks for submitting this form! You have sumitted this form {{request.session.submitted}} times now.</p>
+	<ul>
+		<h2>SUBMITTED INFORMATION</h2>
+		<li>Name: {{request.session.yourName}}</li>
+		<li>Dojo Location: {{request.session.location}}</li>
+		<li>Favorite Language: {{request.session.language}}</li>
+		<li>Comment: {{request.session.comment}}</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login & Reg | Home</title>
+</head>
+<body>
+	<form action="/register" method="POST">
+		{% csrf_token %}
+		<ul>
+			<h1>Register</h1>
+			<li>First Name:<input type="text" name="first_name"></li>
+			<li>Last Name:<input type="text" name="last_name"></li>
+			<li>email:<input type="text" name="email_register"></li>
+			<li>password:<input type="text" name="pwd_register"></li>
+			<li>confirm password:<input type="text" name="pwd_confirm"></li>
+			<li><input type="submit" value="Register"></li>
+		</ul>
+	</form>
+	<form action="/login" method="POST">
+		{% csrf_token %}
+		<ul>
+			<li><h1>Login</h1></li>
+			<li>email:<input type="text" name="email_login"></li>
+			<li>password:<input type="text" name="pwd_login"></li>
+			<li><input type="submit" value="Login"></li>
+		</ul>
+	</form>
+
+</body>
+</html>
